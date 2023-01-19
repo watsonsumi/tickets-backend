@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: backend-mstickets-app
+    labels:
+        app: backend-mstickets-app
+spec:
+    selector:
+        matchLabels:
+            app: backend-mstickets-app
+    template:
+        metadata:
+            labels:
+                app: backend-mstickets-app
+        spec:
+            containers:
+                - name: backend-mstickets-app
+                  image: registry.gitlab.com/2cloudpe/ms-tickets
+                  imagePullPolicy: IfNotPresent
+                  ports:
+                      - containerPort: 8000
+                        protocol: TCP
+            imagePullSecrets:
+                - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: backend-mstickets-app-svc
+    namespace: default
+spec:
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+        app: backend-mstickets-app
