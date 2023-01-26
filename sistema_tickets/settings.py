@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -95,15 +95,11 @@ WSGI_APPLICATION = 'sistema_tickets.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dbtickets',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'TIME_ZONE': 'America/Lima',
-    }
+   'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://bdtickets_user:7DW9wFlzcmaz18aBINjTSU8KR4cKWL5V@dpg-cf9erjcgqg45egsnpvdg-a.oregon-postgres.render.com/bdtickets',
+        conn_max_age=600
+    )
 }
 
 # LOGGING = {
