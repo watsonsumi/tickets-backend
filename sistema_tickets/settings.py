@@ -95,11 +95,14 @@ WSGI_APPLICATION = 'sistema_tickets.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-   'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://bdtickets_user:7DW9wFlzcmaz18aBINjTSU8KR4cKWL5V@dpg-cf9erjcgqg45egsnpvdg-a.oregon-postgres.render.com/bdtickets',
-        conn_max_age=600
-    )
+	'default': {
+		'ENGINE ': 'django.db.backends.postgresql_psycopg2'
+		'NAME' : 'entradasbd'
+		'USER' : 'bdtickets_user'
+		'PASSWORD' : '7DW9wFlzcmaz18aBINjTSU8KR4cKWL5V'
+		'HOST' : 'dpg-cf9erjcgqg45egsnpvdg-a' # localhost en caso de tenerlo en local y la URL de la base de datos en caso de tenerlo en algún servicio en la nube
+		'PORT' : '5432' # Si usas el puerto default no pongas esta línea y si lo has cambiado especifícaselo aquí
+	}
 }
 
 # LOGGING = {
