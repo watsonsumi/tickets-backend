@@ -96,12 +96,12 @@ WSGI_APPLICATION = 'sistema_tickets.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE ': 'django.db.backends.postgresql_psycopg2'
-		'NAME' : 'bdtickets'
-		'USER' : 'bdtickets_user'
-		'PASSWORD' : '7DW9wFlzcmaz18aBINjTSU8KR4cKWL5V'
-		'HOST' : 'dpg-cf9erjcgqg45egsnpvdg-a' # localhost en caso de tenerlo en local y la URL de la base de datos en caso de tenerlo en algún servicio en la nube
-		'PORT' : '5432'
+		'ENGINE ': 'django.db.backends.postgresql_psycopg2',
+		'NAME' : 'bdtickets',
+		'USER' : 'bdtickets_user',
+		'PASSWORD' : '7DW9wFlzcmaz18aBINjTSU8KR4cKWL5V',
+		'HOST' : 'dpg-cf9erjcgqg45egsnpvdg-a', # localhost en caso de tenerlo en local y la URL de la base de datos en caso de tenerlo en algún servicio en la nube
+		'PORT' : '5432',
 	
 	}
 }
